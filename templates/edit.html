@@ -1,0 +1,39 @@
+<!--This file is used to edit the code from one of the blog posts-->
+<!--references to the base.html file which ahs the basics for building html-->
+{%extends 'base.html'%}
+
+<!-- this section changes the name at the top of the tab.-->
+{%block head%} 
+<title>Edit Posts</title>
+{%endblock%}
+
+{% block body %}
+
+<h1>Edit posts</h1>
+
+<!--hr is horizontal lines to keep it clean. This is the start for the front end interface. -->
+<hr>
+<!--create the name/title of request for the user to follow. -->
+<h2>Edit Blog Post:</h2>
+<!--indicate what the action if for the file.post = get data from the user.-->
+<form action ='/posts/edit/{{post.id}}' method='POST'>
+    <!--give the paramaters for the user input. -->
+    <!--title content--> 
+    <label for="title">Title:</label>
+    <input class="form-control" type="text" name ='title' id='title' value="{{post.title}}" aria-label="Enter Title">
+    <br> <!--line break. -->
+    <!--perameters for author input from user. -->
+    <!--author content-->
+    <label for="author">Author:</label>
+    <input class="form-control" type="text" name='author' id='author' value="{{post.author}}" aria-label="Enter Author">
+    <br>
+    <!--paramates for for posts -->
+   <!--post content --> 
+    <label for="content">Post:</label>
+    <textarea class="form-control" name='content' id="content"  aria-label="Enter Content" rows="3">{{post.content}}</textarea>
+    <br>
+    <input type='submit' value='Save'> <!--this is creates the submit button for the user.-->
+</form>
+<hr>
+
+{% endblock %}

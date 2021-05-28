@@ -1,0 +1,6 @@
+/* this shpws the user how to change the font for the text. If you navigate to the base.html
+file you can see how the font is change for the text specified. */ 
+
+body{
+    font-family: 'Times New Roman'; 
+}

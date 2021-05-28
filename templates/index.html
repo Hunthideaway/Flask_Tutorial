@@ -1,0 +1,32 @@
+<!--reference to the base.html file which has the basics for the html build.-->
+{%extends 'base.html'%}
+
+<!--this section changes the name at the top of the tab-->
+{%block head%}
+<title>Home</title>
+{%endblock%}
+
+<!--this section displays information to the screen.-->
+{%block body%}
+<br>
+<h1>Home page</h1>
+<br>
+<!--The code below was copied from the bootstrap nav bar page to get the desired layout of the page.-->
+<main>
+    <div>
+        <div class="bg-light p-5 rounded">
+            <div class="col-sm-8 mx-auto">
+                <h1>Welcome</h1>
+                <p> This is the home page for the website I created for fun on flask. The link is for Boat World.
+                     <a href="https://www.boatworldusa.com/">Boat World.</a> </p>
+                <p>  If you need to a place to store a boat you can also visit the following link. <a href="https://www.marina-mar.com/">Marina Mar</a></p>
+                <p>
+                    <a class="btn btn-primary" href="/posts" role="button">Go to Posts
+                        &raquo;</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+{%endblock%}

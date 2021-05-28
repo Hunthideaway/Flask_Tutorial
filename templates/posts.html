@@ -1,0 +1,50 @@
+<!--references to the base.html file which ahs the basics for building html-->
+{%extends 'base.html'%}
+
+<!-- this section changes the name at the top of the tab.-->
+{%block head%} 
+<title>Posts</title>
+{%endblock%}
+
+<!--this section displays information to the screen.-->
+{% block body %}
+<div>
+    <h1 style ="display:inline">All posts</h1>
+    <a style = "display:inline" class ="btn btn-success float-end" href="/posts/new"> + New Post</a>
+</div>
+<hr>
+<!--this is a loop, that references posts in app.py for the data within it. -->
+    {% for post in posts %}
+<br>
+<!--using {{post.name}} will display to the user the contents of name.-->
+        <h2>{{post.title}} </h2>
+
+<!--using if statements in html. The small tag is used to make the webpage look better . -->
+        {%if post.author%}
+            <small>Written by: {{post.author}} on {{post.date}}</small>
+
+<!--using else statements in html-->
+        {%else %} 
+            <small>Written by unknown on {{post.date}}</small>
+
+<!-- end if statement.-->
+    {%endif%}
+    <br>
+    <br>
+<!-- display the content to the user. The style below preserves the white space entered by the user-->
+    <p style = "white-space:pre-wrap">{{post.content}}</p>
+<br>
+<!--create a delete button for the user to delete a post. href is a referencce link that will reference the delete 
+process-->
+<a class="btn btn-danger" href='/posts/delete/{{post.id}}'>Delete</a>
+<!--add in the edit buttom to edit a single psot at a time.-->
+<a class="btn btn-primary" href='/posts/edit/{{post.id}}'>Edit</a>
+
+<hr>
+
+<!--end loop-->
+    {% endfor %} 
+
+<!--end block-->
+{%endblock%} 
+
